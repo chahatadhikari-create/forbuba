@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🩵%3C/text%3E%3C/svg%3E">
+<title>For Vivu 🩵</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#bfe0fa;--bg2:#d6ebfc;--card:#fff;--ink:#1f4268;--soft:#3f6a99;--blue:#7dbcf2;--pink:#a9d8f8;--sun:#c9e8fd;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+body{margin:0;min-height:100vh;min-height:100dvh;background:var(--bg);background-image:linear-gradient(170deg,var(--bg),var(--bg2));color:var(--ink);font-family:'Nunito',system-ui,sans-serif;font-size:17px;line-height:1.5;overflow-x:hidden}
+h1,h2,h3,.btn{font-family:'Baloo 2','Nunito',system-ui,sans-serif;margin:0}
+h1{font-size:2.3rem;line-height:1.1}h2{font-size:1.7rem}
+.screen{display:none;min-height:100vh;min-height:100dvh;padding:24px 18px 32px;max-width:520px;margin:0 auto;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px}
+.screen.on{display:flex}
+.btn{background:var(--blue);color:var(--ink);border:0;border-radius:999px;padding:14px 30px;font-size:1.15rem;font-weight:700;box-shadow:0 8px 20px rgba(143,200,246,.55);cursor:pointer;transition:transform .15s}
+.btn:active{transform:scale(.94)}
+.btn.pink{background:#fff;box-shadow:0 8px 20px rgba(169,216,248,.6)}
+.pulse{animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.07)}}
+.stage{width:100%;background:var(--card);border-radius:28px;box-shadow:0 10px 30px rgba(35,64,110,.15);padding:14px 10px 6px;position:relative;overflow:hidden}
+.stage svg{width:100%;max-width:300px;height:auto;max-height:40vh;max-height:40dvh;display:block;margin:0 auto}
+.bob{animation:bob 2.4s ease-in-out infinite;transform-origin:110px 230px}
+@keyframes bob{50%{transform:translateY(-7px)}}
+.blink{animation:blink 4s infinite;transform-origin:center;transform-box:fill-box}
+@keyframes blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.wave{animation:wave .7s ease-in-out infinite alternate;transform-origin:128px 80px}
+@keyframes wave{from{transform:rotate(-14deg)}to{transform:rotate(16deg)}}
+.cap{font-size:1.08rem;min-height:4.6em;padding:6px 8px}
+.cap b{font-family:'Baloo 2',sans-serif;font-size:1.3rem;display:block}
+.dots{display:flex;gap:7px;justify-content:center}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--soft);opacity:.35}
+.dots i.on{opacity:1;background:#fff}
+.cloud{position:absolute;top:8px;left:12%;font-size:3rem;animation:drift 5s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(40px)}}
+.fall{animation:fall 3s linear infinite}
+@keyframes fall{from{transform:translateY(0)}to{transform:translateY(8px)}}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%}
+.flip{perspective:700px;height:175px;border:0;background:none;padding:0;cursor:pointer;font:inherit;color:inherit}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip.open .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;display:flex;align-items:center;justify-content:center;padding:12px;box-shadow:0 8px 20px rgba(35,64,110,.15);flex-direction:column;gap:4px}
+.front{background:var(--blue);color:var(--ink);font-family:'Baloo 2',sans-serif;font-size:1.15rem}
+.front span{font-size:2rem}
+.back{background:var(--card);transform:rotateY(180deg);font-size:.86rem;line-height:1.35;overflow:hidden}
+.sky{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 4px;width:100%}
+.pop{aspect-ratio:1.6;border:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cg fill='white'%3E%3Ccircle cx='46' cy='62' r='26'/%3E%3Ccircle cx='82' cy='44' r='32'/%3E%3Ccircle cx='116' cy='60' r='27'/%3E%3Crect x='24' y='58' width='112' height='30' rx='15'/%3E%3C/g%3E%3C/svg%3E") center/100% 100% no-repeat;color:#1f4268;font:700 .72rem 'Nunito',sans-serif;cursor:pointer;line-height:1.1;padding:26% 16% 6%;display:grid;place-items:center;filter:drop-shadow(0 6px 8px rgba(31,66,104,.18));transition:transform .2s}
+.pop:active{transform:scale(.88)}
+.pop.gone{background:none;filter:none;font-size:2.3rem;padding:0;animation:boing .5s}
+@keyframes boing{0%{transform:scale(.3)}70%{transform:scale(1.2)}}
+.msg{background:var(--card);border-radius:26px;padding:22px;box-shadow:0 10px 30px rgba(35,64,110,.15);text-align:left}
+.msg p{margin:.6em 0}
+.sign{font-family:'Baloo 2',sans-serif;font-size:1.3rem;text-align:right}
+.fx{position:fixed;pointer-events:none;z-index:50;font-size:1.6rem}
+.heart{position:fixed;bottom:-30px;pointer-events:none;z-index:0;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+.screen{position:relative;z-index:1}
+@media (max-width:380px){h1{font-size:1.85rem}h2{font-size:1.45rem}body{font-size:16px}.flip{height:195px}.back{font-size:.8rem}.pop{font-size:.62rem}.btn{padding:13px 22px;font-size:1.05rem}}
+@media (min-width:700px){.screen{max-width:480px}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+
+<section class="screen on" id="open">
+  <div class="stage" style="padding:18px"><div id="art0"></div></div>
+  <h1>Hey Vivu, I made you something 🩵</h1>
+  <p>Bad day? Good thing you have a tiny girlfriend with big plans.</p>
+  <button class="btn pulse" id="go">Tap to open</button>
+</section>
+
+<section class="screen" id="story">
+  <div class="stage"><div id="art"></div></div>
+  <div class="cap" id="cap"></div>
+  <div class="dots" id="dots"></div>
+  <button class="btn" id="next">Next</button>
+</section>
+
+<section class="screen" id="cards">
+  <h2>Open when you’re sad 💌</h2>
+  <p style="margin:0">Tap a card, buba.</p>
+  <div class="cards" id="grid"></div>
+  <button class="btn pink" id="hug">Virtual hug 🫂</button>
+  <button class="btn" id="togame">Next: pop the bad-day clouds</button>
+</section>
+
+<section class="screen" id="game">
+  <h2>Pop the bad-day clouds ☁️</h2>
+  <p style="margin:0" id="gm">Tap every cloud to find the sunshine.</p>
+  <div class="sky" id="sky"></div>
+  <button class="btn" id="toend" style="display:none">One last thing 🩵</button>
+</section>
+
+<section class="screen" id="end">
+  <div class="stage"><div id="art2"></div></div>
+  <div class="msg">
+    <p>Buba,</p>
+    <p>You are my safe place, my favourite human, and the only person who can carry me like a handbag and still make me feel like a queen.</p>
+    <p>Bad days pass. I don’t go anywhere. Whatever happened today, we’ll fix it together, with rasgulla, a Notting Hill night and one very long hug.</p>
+    <p>I love you. Your eyes, your beard, your biceps, your everything.</p>
+    <div class="sign">Your bubu 🩵</div>
+  </div>
+  <button class="btn pink" id="hug2">One more hug 🫂</button>
+</section>
+
+<script>
+const $=s=>document.querySelector(s);
+function couple(o={}){
+  const hairBumps=[[84,38],[100,30],[118,30],[134,38]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="15" fill="#2a1d1a"/>`).join('');
+  const curls=[[132,34],[124,22],[140,20],[154,22],[162,36],[160,52],[128,52]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="11" fill="#1c1418"/>`).join('');
+  return `<svg viewBox="0 0 220 245" role="img" aria-label="Cartoon of Vivu carrying Chahat on his back"><ellipse cx="110" cy="236" rx="80" ry="7" fill="#000" opacity=".12"/>
+  <g class="bob">
+   <rect x="78" y="168" width="26" height="62" rx="10" fill="#5d6470"/><rect x="116" y="168" width="26" height="62" rx="10" fill="#5d6470"/>
+   <g>${curls}<rect x="136" y="60" width="38" height="46" rx="16" fill="#fff6e8"/><circle cx="144" cy="46" r="21" fill="#e9b48f"/><path d="M124 40q20-26 40-4q-8-6-20 0q-10 4-20 4z" fill="#1c1418"/>
+     <circle cx="138" cy="46" r="2.6" fill="#2a1d1a" class="blink"/><circle cx="152" cy="46" r="2.6" fill="#2a1d1a" class="blink"/><path d="M137 54q7 7 15 0" stroke="#b03a54" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="145" cy="50" r="1.2" fill="#ff8fb1"/><circle cx="132" cy="53" r="5" fill="#ff8fb1" opacity=".4"/><circle cx="157" cy="53" r="5" fill="#ff8fb1" opacity=".4"/></g>
+   <rect x="58" y="96" width="104" height="84" rx="32" fill="#8fc8f6"/>
+   <rect x="46" y="104" width="22" height="62" rx="11" fill="#8fc8f6"/><rect x="154" y="104" width="22" height="62" rx="11" fill="#8fc8f6"/>
+   <circle cx="57" cy="170" r="10" fill="#a86a42"/><circle cx="165" cy="170" r="10" fill="#a86a42"/>
+   <path d="M148 80 Q140 112 108 126" stroke="#fff6e8" stroke-width="10" stroke-linecap="round" fill="none"/><circle cx="106" cy="127" r="6" fill="#e9b48f"/>
+   ${o.wave?`<g class="wave"><rect x="126" y="52" width="9" height="30" rx="4" fill="#fff6e8" transform="rotate(25 130 80)"/><circle cx="141" cy="52" r="5" fill="#e9b48f"/></g>`:''}
+   <circle cx="110" cy="84" r="38" fill="#a86a42"/>${hairBumps}<path d="M74 56q36-32 72 0v12q-36-24-72 0z" fill="#2a1d1a"/>
+   <circle cx="73" cy="88" r="5" fill="none" stroke="#c9ced6" stroke-width="2.4"/><circle cx="147" cy="88" r="5" fill="none" stroke="#c9ced6" stroke-width="2.4"/>
+   <path d="M76 88q4 40 34 42q30-2 34-42q-6 18-34 20q-28-2-34-20z" fill="#2a1d1a"/>
+   <path d="M95 102q15 12 30 0q-15 4-30 0z" fill="#fff"/>
+   <ellipse cx="97" cy="80" rx="4" ry="5" fill="#1b1212" class="blink"/><ellipse cx="123" cy="80" rx="4" ry="5" fill="#1b1212" class="blink"/>
+   <path d="M88 71q9-5 15-1M117 70q6-4 15 1" stroke="#2a1d1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>${o.props||''}</svg>`;
+}
+function sweets(){return `<svg viewBox="0 0 220 245" aria-label="Rasgulla and gulab jamun"><ellipse cx="110" cy="220" rx="90" ry="8" fill="#000" opacity=".1"/>
+ <g class="bob"><circle cx="150" cy="170" r="30" fill="#fffaf0" stroke="#f0e2c8" stroke-width="3"/><circle cx="140" cy="162" r="6" fill="#fff" opacity=".8"/><circle cx="144" cy="172" r="3" fill="#2a1d1a" class="blink"/><circle cx="158" cy="172" r="3" fill="#2a1d1a" class="blink"/><path d="M146 181q5 5 10 0" stroke="#c0485f" stroke-width="2.4" fill="none"/></g>
+ <g class="bob" style="animation-delay:-1.2s"><circle cx="82" cy="110" r="58" fill="#6b3a24"/><circle cx="62" cy="86" r="12" fill="#8a5233" opacity=".7"/><circle cx="66" cy="112" r="5" fill="#1b1212" class="blink"/><circle cx="96" cy="112" r="5" fill="#1b1212" class="blink"/><path d="M68 130q14 14 28 0" stroke="#ffd9c8" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>
+ <text x="110" y="238" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor">gulab jamun + rasgulla</text></svg>`}
+const sc=[
+ {art:()=>couple({props:'<text x="30" y="50" font-size="46" class="fall">☁️</text><text x="165" y="30" font-size="30" class="fall">🌧️</text>'}),t:'Chapter 1: The cloud',x:'Once upon a time, a giant named Vivu got a very rude little cloud following him all day. Rude. Unacceptable.'},
+ {art:()=>couple({wave:1}),t:'Chapter 2: Enter bubu',x:'Then a tiny person with curls and a lot of opinions appeared on his back, waving. “Hi buba. I’m here to fight the cloud.”'},
+ {art:sweets,t:'Chapter 3: The sweet deal',x:'In the great sweet shop of life, she is the rasgulla and he is the gulab jamun. Different colours, same syrupy goodness. Best pair on the menu.'},
+ {art:()=>couple({props:'<text x="18" y="60" font-size="26" class="fall">🩵</text><text x="176" y="100" font-size="22" class="fall">✨</text>'}),t:'Chapter 4: Giant carries tiny',x:'He is giant. She is tiny. He carries her, she carries his heart. Fair trade. No refunds.'},
+ {art:()=>couple({props:'<text x="22" y="40" font-size="32" class="fall">🍿</text><text x="168" y="40" font-size="32" class="fall">🎬</text>'}),t:'Chapter 5: Movie night',x:'Plan: blanket, snacks, Notting Hill. The cloud is not invited. Nobody saw it come in.'},
+ {art:()=>couple({props:'<text x="86" y="26" font-size="40" class="fall">☀️</text>'}),t:'Chapter 6: The sun came out',x:'The cloud got bored and left. The end. (Not really. This story goes on forever, buba.) 🩵'}
+];
+let i=0;
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));window.scrollTo(0,0)}
+function scene(){const s=sc[i];$('#art').innerHTML=s.art();$('#cap').innerHTML=`<b>${s.t}</b>${s.x}`;
+ $('#dots').innerHTML=sc.map((_,k)=>`<i class="${k<=i?'on':''}"></i>`).join('');
+ $('#next').textContent=i===sc.length-1?'Open when you’re sad 💌':'Next'}
+$('#art0').innerHTML=couple({wave:1});$('#art2').innerHTML=couple({props:'<text x="86" y="26" font-size="36" class="fall">🩵</text>'});
+$('#go').onclick=()=>{hearts(20);show('story');scene()};
+$('#next').onclick=()=>{if(i<sc.length-1){i++;scene()}else{show('cards')}};
+const cds=[['🩵','A compliment','You make a whole room feel safer just by walking in. Also, the beard is elite.'],
+ ['😂','A silly joke','Why did the gulab jamun win? Because he was already the sweetest. (Rasgulla says ok fine.)'],
+ ['🤝','A promise','I promise to listen, to bring snacks, and to climb you like a tree whenever you need a hug.'],
+ ['🎬','A movie night','Next date is a Notting Hill night. I’ll do the popcorn. You do the cuddling.']];
+$('#grid').innerHTML=cds.map(c=>`<button class="flip"><div class="in"><div class="face front"><span>${c[0]}</span>${c[1]}</div><div class="face back">${c[2]}</div></div></button>`).join('');
+document.querySelectorAll('.flip').forEach(b=>b.onclick=()=>b.classList.toggle('open'));
+function burst(){const em=['🩵','🩵','✨','🌸','🫶','⭐'];for(let k=0;k<34;k++){const e=document.createElement('div');e.className='fx';e.textContent=em[k%em.length];
+ e.style.left='50vw';e.style.top='55vh';document.body.appendChild(e);const a=Math.random()*6.28,d=100+Math.random()*180;
+ e.animate([{transform:'translate(0,0) scale(.4)',opacity:1},{transform:`translate(${Math.cos(a)*d}px,${Math.sin(a)*d-80}px) scale(1.3)`,opacity:0}],{duration:1400,easing:'ease-out'}).onfinish=()=>e.remove()}}
+function hearts(n){for(let k=0;k<n;k++){const h=document.createElement('div');h.className='heart';h.textContent=['🩵','🩵','🤍'][k%3];
+ h.style.left=Math.random()*95+'vw';h.style.fontSize=(16+Math.random()*20)+'px';h.style.animationDuration=(4+Math.random()*4)+'s';h.style.animationDelay=Math.random()*2+'s';
+ document.body.appendChild(h);setTimeout(()=>h.remove(),9000)}}
+$('#hug').onclick=burst;$('#hug2').onclick=burst;
+$('#togame').onclick=()=>show('game');
+const bad=['bad mood','so tired','traffic','annoying people','deadlines','hungry','Monday vibes','nothing works'];
+const good=['🌞','🩵','🍮','🥰','🐻','🌈','🍿','☀️'];let left=bad.length;
+$('#sky').innerHTML=bad.map((b,k)=>`<button class="pop" data-k="${k}">${b}</button>`).join('');
+document.querySelectorAll('.pop').forEach(p=>p.onclick=()=>{if(p.classList.contains('gone'))return;p.classList.add('gone');p.textContent=good[p.dataset.k];left--;
+ if(left>0)$('#gm').textContent=left+' cloud'+(left>1?'s':'')+' left…';else{$('#gm').textContent='All clouds gone. Sunshine wins ☀️';burst();$('#toend').style.display='';}});
+$('#toend').onclick=()=>{show('end');hearts(25)};
+hearts(6);
+</script>
+</body>
+</html>
